@@ -8,10 +8,11 @@ namespace Business.Abstract
 {
     public interface IImagerService
     {
-        void Add(IFormFile file, int categoryId);
+        void Add(Image Image);
         void Delete(Image Image);
         void Update(Image ımage, IFormFile file);
         List<Image> GetAll();
         Image GetById(int id);
+        List<Image> GetListCategory();
     }
 }

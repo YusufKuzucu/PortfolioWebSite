@@ -9,8 +9,9 @@ namespace Entities
     {
         [Key]
         public int Id { get; set; }
-        public int CategoryId { get; set; }
         public string ImagePath { get; set; }
         public DateTime Date { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
     }
 }

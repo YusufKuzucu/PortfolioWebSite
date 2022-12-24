@@ -8,5 +8,6 @@ namespace DataAccess.Abstract
 {
     public interface IImageDal : IGenericDal<Image>
     {
+        List<Image> GetListCategory();
     }
 }

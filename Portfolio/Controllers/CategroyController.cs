@@ -15,5 +15,12 @@ namespace Portfolio.Controllers
 
             return View(values);
         }
+
+        public PartialViewResult GetCategory()
+        {
+            return PartialView();
+        }
+
+    
     }
 }

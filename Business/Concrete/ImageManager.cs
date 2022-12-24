@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using DataAccess.Abstract;
 using Entities;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -11,9 +12,16 @@ namespace Business.Concrate
 {
     public class ImageManager : IImagerService
     {
-        public void Add(IFormFile file, int categoryId)
+        IImageDal _imageDal;
+
+        public ImageManager(IImageDal imageDal)
         {
-            throw new NotImplementedException();
+            _imageDal = imageDal;
+        }
+
+        public void Add(Image Image)
+        {
+            _imageDal.Add(Image);
         }
 
         public void Delete(Image Image)
@@ -29,6 +37,11 @@ namespace Business.Concrate
         public Image GetById(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Image> GetListCategory()
+        {
+            return _imageDal.GetListCategory();
         }
 
         public void Update(Image ımage, IFormFile file)

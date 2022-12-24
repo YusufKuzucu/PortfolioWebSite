@@ -26,17 +26,17 @@ namespace Business.Concrate
 
         public void Delete(Image Image)
         {
-            throw new NotImplementedException();
+            _imageDal.Delete(Image);
         }
 
         public List<Image> GetAll()
         {
-            throw new NotImplementedException();
+            return _imageDal.GetAll();
         }
 
         public Image GetById(int id)
         {
-            throw new NotImplementedException();
+            return _imageDal.GetById(id);
         }
 
         public List<Image> GetListCategory()

@@ -1,0 +1,29 @@
+﻿@using Entities
+@model List<Category>
+@{
+    ViewData["Title"] = "AdminGetAllCategory";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Kategori Adı</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CategoryName</td>
+                <td><a type="button" class="btn btn-danger" href="/Categroy/AdminDeleteCategory/@item.Id">SİL</a></td>
+                <td><a type="button" class="btn btn-warning" href="/Categroy/AdminCategoryUpdate/@item.Id">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

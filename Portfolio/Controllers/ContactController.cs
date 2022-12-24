@@ -9,10 +9,23 @@ namespace Portfolio.Controllers
     {
         ContactManager contactManager = new ContactManager(new EfContactDal());
 
-        public IActionResult Index()
+        public IActionResult AdminGetContact()
         {
             var values = contactManager.GetAll();
             return View(values);
+        }
+
+        public IActionResult AdminDeleteContact(int id)
+        {
+            var contactValue = contactManager.GetById(id);
+            contactManager.Delete(contactValue);
+            return RedirectToAction("AdminGetContact","Contact");
+        }
+
+        public IActionResult AdminGetByIdContact(int id)
+        {
+            var contact = contactManager.GetById(id);
+            return View(contact);
         }
 
         [HttpGet]

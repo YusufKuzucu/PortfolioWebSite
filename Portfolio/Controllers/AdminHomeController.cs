@@ -35,7 +35,7 @@ namespace Portfolio.Controllers
         public IActionResult CategoryAdd(Category category)
         {
             categoryManager.Add(category);
-            return RedirectToAction("Index","AdminHome");
+            return RedirectToAction("AdminGetAllCategory", "Categroy");
 
         }
 
@@ -61,6 +61,7 @@ namespace Portfolio.Controllers
                 var stream = new FileStream(location , FileMode.Create);
                 image.ImagePath.CopyTo(stream);
                 imageSite.ImagePath = newImageName;
+                imageSite.Date = DateTime.Now;
             }
 
             imageManager.Add(imageSite);

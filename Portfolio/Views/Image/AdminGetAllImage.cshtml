@@ -1,0 +1,31 @@
+﻿@using Entities
+@model List<Image>
+@{
+    ViewData["Title"] = "AdminGetAllImage";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-hover text-center">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Path</th>
+            <th>Kategori</th>
+            <th>Tarih</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><b>@item.Id</b></td>
+                <td><img src="~/images/@item.ImagePath"  width="100" height="100"/></td>
+                <td>@item.CategoryId</td>
+                <td>@item.Date</td>
+                <td><a type="button" class="btn btn-danger" href="/Image/AdminDeleteImage/@item.Id">Sil</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

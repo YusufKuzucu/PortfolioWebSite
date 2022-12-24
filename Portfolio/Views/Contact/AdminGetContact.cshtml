@@ -1,0 +1,33 @@
+﻿@using Entities
+@model List<Contact>
+@{
+    ViewData["Title"] = "AdminGetContact";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table  class="table table-hover bg-success text-white text-center rounded-1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>E-posta</th>
+            <th>Mesaj</th>
+            <th>Sil</th>
+            <th>Detay</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><b>@item.Id</b></td>
+                <td>@item.Email</td>
+                <td>@item.Message.Substring(0,10)</td>
+                <td><a href="/Contact/AdminDeleteContact/@item.Id" type="button" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Contact/AdminGetByIdContact/@item.Id" type="button" class="btn btn-warning">Detayına Git</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -1,0 +1,26 @@
+﻿@model Entities.Contact
+@{
+    ViewData["Title"] = "AdminGetByIdContact";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-secondary rounded h-100 p-4">
+        <h4 class="mb-4">Mesaj Detayı</h4>
+        @using (Html.BeginForm("AdminGetByIdContact", "Contact", FormMethod.Get))
+        {
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Gönderen E-postası</label>
+                <input type="text" asp-for="@Model.Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+                <label for="exampleInputEmail1" class="form-label">Mesaj</label>
+            <div class="form-floating">
+                <textarea class="form-control" asp-for="@Model.Message" id="floatingTextarea" style="height: 150px;"></textarea>
+            </div>
+        }
+        <a type="button" class="btn btn-success mt-3" href="/Contact/AdminGetContact">Geri Dön</a>
+    </div>
+</div>
+

@@ -2,6 +2,7 @@
 using DataAccess.Concrete;
 using DataAccess.Context;
 using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Portfolio.Controllers
@@ -21,7 +22,7 @@ namespace Portfolio.Controllers
         {
             return PartialView();
         }
-
+        [AllowAnonymous]
         public IActionResult AdminGetAllCategory()
         {
             var values = categoryManager.GetAll();

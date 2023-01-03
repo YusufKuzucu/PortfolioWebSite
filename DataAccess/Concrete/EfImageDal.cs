@@ -17,6 +17,8 @@ namespace DataAccess.Concrete
             using (var context = new PortfolioContext())
             {
                 return context.Images.Include(p => p.Category).ToList();
+
+
             }
         }
     }

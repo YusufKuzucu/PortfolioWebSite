@@ -20,7 +20,7 @@
             <tr>
                 <td>@item.Id</td>
                 <td><img src="~/images/@item.ImagePath" width="100" height="100" /></td>
-                <td>@item.MyAboutDescription.Substring(0,50)</td>
+                <td>@item.MyAboutDescription</td>
                 <td><a href="/About/AdminAboutDelete/@item.Id" type="button" class="btn btn-outline-danger" style="margin-right:5px;">Sil</a> <a href="/About/AdminAboutUpdate/@item.Id" type="button" class="btn btn-outline-warning">Güncelle</a></td>
             </tr>
         }

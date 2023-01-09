@@ -25,13 +25,60 @@ Send Message to Admin, Delete Message, Get All Message
 
 
 The following technologies have been used in the project:
-Tech	Version
-.Net Core	3.1
-FluentValidation	11.4.0
-EntityFrameworkCore	3.1.3
-Microsoft.EntityFrameworkCore.Design	3.1.3
-Microsoft.EntityFrameworkCore.Tools	3.1.3
-EntityFrameworkCore.MySql	3.1.1
-jquery.datatables	1.10.15
+<table>
+<thead>
+<tr>
+<th>Tech</th>
+<th>Version</>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.Net Core</td>
+<td>3.1</td>
+</tr>
+
+<tr>
+<td>FluentValidation</td>
+<td>11.4.0</td>
+</tr>
+
+<tr>
+<td>EntityFrameworkCore</td>
+<td>3.1.3</td>
+</tr>
+
+<tr>
+<td>Microsoft.EntityFrameworkCore.Design</td>
+<td>3.1.3</td>
+</tr>
+
+<tr>
+<td>Microsoft.EntityFrameworkCore.Tools</td>
+<td>3.1.3</td>
+</tr>
+
+<tr>
+<td>EntityFrameworkCore.MySql</td>
+<td>3.1.1</td>
+</tr>
+
+<tr>
+<td>jquery.datatables</td>
+<td>1.10.15</td>
+</tr>
+
+<tr>
+<td>Microsoft.AspNet.Mvc</td>
+<td>5.2.7</td>
+</tr>
+
+<tr>
+<td>Pomelo.EntityFrameworkCore.MySql</td>
+<td>3.1.1</td>
+</tr>
+</tbody>
+</table>
+
 Microsoft.AspNet.Mvc	5.2.7
 Pomelo.EntityFrameworkCore.MySql	3.1.1

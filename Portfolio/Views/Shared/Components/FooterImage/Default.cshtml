@@ -1,0 +1,22 @@
+﻿@using Entities
+@model List<FooterImage>
+<!-- middle slider -->
+<div class="projects" id="special">
+    <div class="projects-grids">
+        <div class="istagram-feeds">
+            @foreach (var item in Model.OrderByDescending(x => Guid.NewGuid()).Take(8))
+            {
+                <div class="projects-w3l-grid-info">
+                    <a href="#">
+                        <img src="~/images/@item.ImagePath" class="img-fluid" alt="" />
+                        <div class="content-overlay"></div>
+                        <div class="content-details fadeIn-top">
+                            <span class="fa fa-instagram"></span>
+                        </div>
+                    </a>
+                </div>
+            }
+          
+        </div>
+    </div>
+</div>

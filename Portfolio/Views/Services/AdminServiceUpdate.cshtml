@@ -1,0 +1,26 @@
+﻿@model Entities.MyService
+@{
+    ViewData["Title"] = "AdminServiceUpdate";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-secondary rounded h-100 p-4">
+        <h4 class="mb-4">Hizmet Güncelle </h4>
+        <form method="post" action="/Services/AdminServiceUpdate">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Hizmet Adı</label>
+                <input type="text" asp-for="@Model.ServiceName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                @Html.ValidationMessageFor(x => x.ServiceName, "", new { @style = "color:red" })
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Sembol Adı</label>
+                <input type="text" asp-for="@Model.ServiceIcon" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                @Html.ValidationMessageFor(x => x.ServiceIcon, "", new { @style = "color:red" })
+            </div>
+
+            <button type="submit" class="btn btn-primary">Güncelle</button>
+        </form>
+    </div>
+</div>
+

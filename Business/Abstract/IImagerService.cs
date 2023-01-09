@@ -13,6 +13,8 @@ namespace Business.Abstract
         void Update(Image ımage, IFormFile file);
         List<Image> GetAll();
         Image GetById(int id);
+        List<Image> GetByCategoryId(int categoryId);
         List<Image> GetListCategory();
+        List<Image> GetCategoryName(string categoryName);
     }
 }

@@ -1,0 +1,29 @@
+﻿@using Entities
+@model List<Icon>
+@{
+    ViewData["Title"] = "IconIndex";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-hover text-center">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Sembol</th>
+            <th>İcon Adı</th>
+            <th><a href="/Icons/AdminIconAdd" type="button" class="btn btn-outline-info">İCON EKLE</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td><span class="@item.IconName"></span></td>
+                <td>@item.IconName</td>
+                <th><a href="/Icons/AdminIconDelete/@item.Id" type="button" class="btn btn-outline-danger">Sil</a> <a href="/Icons/AdminIconUpdate/@item.Id" type="button" class="btn btn-outline-warning">Güncelle</a></th>
+            </tr>
+        }
+    </tbody>
+</table>
+

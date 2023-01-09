@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Entities.AdminAddress>
+
+@foreach (var item in Model.Take(1))
+{
+    <div class="address-grid mb-3">
+        <span class="pos-icon">
+            <span class="fa fa-map"></span>
+        </span>
+        <div class="ad-right">
+            <h6>Address</h6>
+            <p>@item.Address.</p>
+        </div>
+    </div>
+}

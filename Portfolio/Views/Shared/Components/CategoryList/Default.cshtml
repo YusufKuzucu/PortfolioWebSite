@@ -1,19 +1,13 @@
 ﻿@model IEnumerable<Entities.Category>
 
-<div style="overflow:hidden;overflow-x:scroll;height:50px;">
-    <ul class="portfolio-categ filter mb-md-5 mb-4 p-0">
 
-        @foreach (var item in Model)
-        {
-            int count = 1;
-            count += 1;
-            <li class="cat-item-@(count.ToString())">
-                <a href="@item.Id" title="Category @(count.ToString())">@item.CategoryName</a>
-            </li>
-        }
+<ul style="list-style-type:none;" class="portfolio-categ filter mb-md-5 mb-4 p-0">
 
+    @foreach (var item in Model)
+    {
 
+<li style="list-style-type:none;" id="work" class="cat-item-@item.Id">
+    <a href="@item.Id" title="Category @item.Id">@item.CategoryName - </a>
+</li>}
 
-
-    </ul>
-</div>
+</ul>

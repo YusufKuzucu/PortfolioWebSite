@@ -1,7 +1,9 @@
 ﻿using Business.Concrate;
+using Business.ValidationRules.FluentValidation;
 using DataAccess.Concrete;
 using DataAccess.Context;
 using Entities;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -24,12 +26,15 @@ namespace Portfolio.Controllers
         AdminManager adminManager = new AdminManager(new EfAdminDal());
         ImageManager imageManager = new ImageManager(new EfImageDal());
 
-        [AllowAnonymous]
+       
         public IActionResult Index()
         {
+            
             return View();
         }
-        [AllowAnonymous]
+
+ 
+      
         [HttpGet]
         public IActionResult CategoryAdd()
         {
@@ -37,17 +42,32 @@ namespace Portfolio.Controllers
         }
 
 
-        [AllowAnonymous]
+     
         [HttpPost]
         public IActionResult CategoryAdd(Category category)
         {
-            categoryManager.Add(category);
-            return RedirectToAction("AdminGetAllCategory", "Categroy");
+            CategoryValidator categoryValidator = new CategoryValidator();
+            ValidationResult result = categoryValidator.Validate(category);
+
+            if (result.IsValid)
+            {
+                categoryManager.Add(category);
+                return RedirectToAction("AdminGetAllCategory", "Categroy");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+
+            return View();
 
         }
 
 
-        [AllowAnonymous]
+        
         [HttpGet]
         public IActionResult ImageAdd()
         {
@@ -55,10 +75,11 @@ namespace Portfolio.Controllers
             return View();
         }
 
-        [AllowAnonymous]
+      
         [HttpPost]
         public IActionResult ImageAdd(AddImage image)
         {
+
             Image imageSite = new Image();
             if (image.ImagePath != null)
             {

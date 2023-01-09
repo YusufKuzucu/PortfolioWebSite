@@ -32,7 +32,7 @@ Author URL: http://w3layouts.com
     @RenderBody()
 
     <!-- //gallery-->
-    @await Html.PartialAsync("FooterSlider")
+    @await Component.InvokeAsync("FooterImage")
     <!-- //middle slider -->
     @await Html.PartialAsync("Footer")
 

@@ -12,7 +12,7 @@
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Kategori Adı</label>
                 <input type="text" asp-for="@Model.CategoryName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-
+                @Html.ValidationMessageFor(x => x.CategoryName, "", new { @style = "color:red" })
             </div>
 
             <button type="submit" class="btn btn-primary">Kategori Ekle</button>

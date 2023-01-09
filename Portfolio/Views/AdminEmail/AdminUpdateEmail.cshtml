@@ -1,0 +1,22 @@
+﻿@model Entities.AdminEmail
+@{
+    ViewData["Title"] = "AdminUpdateEmail";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-secondary rounded h-100 p-4">
+        <h4 class="mb-4">Email Bilgisi Ekle</h4>
+        @using (Html.BeginForm("AdminUpdateEmail", "AdminEmail", FormMethod.Post))
+        {
+            @Html.Label("Email Bilgisi :")
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @id = "exampleInputEmail1" })
+            @Html.ValidationMessageFor(x => x.Email, "", new { @style = "color:red" })
+            <br />
+
+            <button type="submit" class="btn btn-primary">Güncelle</button>
+        }
+    </div>
+</div>
+
+

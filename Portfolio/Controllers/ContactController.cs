@@ -1,6 +1,9 @@
 ﻿using Business.Concrate;
+using Business.ValidationRules.FluentValidation;
 using DataAccess.Concrete;
 using Entities;
+using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Portfolio.Controllers
@@ -19,7 +22,7 @@ namespace Portfolio.Controllers
         {
             var contactValue = contactManager.GetById(id);
             contactManager.Delete(contactValue);
-            return RedirectToAction("AdminGetContact","Contact");
+            return RedirectToAction("AdminGetContact", "Contact");
         }
 
         public IActionResult AdminGetByIdContact(int id)
@@ -28,26 +31,40 @@ namespace Portfolio.Controllers
             return View(contact);
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Add()
         {
             return View();
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public IActionResult Add(Contact contact)
         {
-            var email= contact.Email;
-            var message= contact.Message;
-
-             contactManager.Add(contact);
-            if (Ok().StatusCode==200)
-            {
-                return RedirectToAction("Add");
-            }
-            return BadRequest();
             
-           
+
+            ContactValidator contactValidator = new ContactValidator();
+            ValidationResult result = contactValidator.Validate(contact);
+
+            if (result.IsValid)
+            {
+                contactManager.Add(contact);
+
+                return RedirectToAction("Add");
+                
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
+
+
+
         }
     }
 }

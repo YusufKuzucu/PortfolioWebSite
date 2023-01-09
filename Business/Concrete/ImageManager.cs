@@ -34,9 +34,19 @@ namespace Business.Concrate
             return _imageDal.GetAll();
         }
 
+        public List<Image> GetByCategoryId(int categoryId)
+        {
+            return _imageDal.GetAll(x => x.CategoryId == categoryId).ToList();
+        }
+
         public Image GetById(int id)
         {
             return _imageDal.GetById(id);
+        }
+
+        public List<Image> GetCategoryName(string categoryName)
+        {
+            return _imageDal.GetAll(x=>x.Category.CategoryName.Contains(categoryName));
         }
 
         public List<Image> GetListCategory()

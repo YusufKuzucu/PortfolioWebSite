@@ -1,0 +1,15 @@
+﻿
+@model IEnumerable<Entities.AdminPhoneNumber>
+
+@foreach (var item in Model.Take(1))
+{
+    <div class="address-grid">
+        <span class="pos-icon">
+            <span class="fa fa-headphones"></span>
+        </span>
+        <div class="ad-right">
+            <h6>Phone</h6>
+            <a href="tel:@item.PhoneNumber" class="link1">@item.PhoneNumber</a>
+        </div>
+    </div>
+}

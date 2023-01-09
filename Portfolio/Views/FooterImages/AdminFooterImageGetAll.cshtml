@@ -1,0 +1,29 @@
+﻿@using Entities
+@model List<FooterImage>
+@{
+    ViewData["Title"] = "AdminFooterImageGetAll";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-hover text-center">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fotoğraf</th>
+            <th>Tarih</th>
+            <th><a href="/FooterImages/AdminFooterImageAdd" type="button" class=" btn btn-outline-info">Fotoğraf Ekle</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td><a href="~/images/@item.ImagePath"><img src="~/images/@item.ImagePath" width="100" height="100" /></a></td>
+                <td>@item.Date</td>
+                <td><a href="/FooterImages/AdminFooterImageDelete/@item.Id" role="button" class=" btn btn-outline-danger">Sil</a> <a href="/FooterImages/AdminFooterImageUpdate/@item.Id" role="button" class=" btn btn-outline-warning">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

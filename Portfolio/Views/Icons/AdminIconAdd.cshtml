@@ -1,0 +1,22 @@
+﻿@model Entities.Icon
+@{
+    ViewData["Title"] = "AdminIconAdd";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-secondary rounded h-100 p-4">
+        <h4 class="mb-4">İcon Ekle</h4>
+        <form method="post" action="/Icons/AdminIconAdd">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">İcon Adı</label>
+                <input type="text" asp-for="@Model.IconName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                @Html.ValidationMessageFor(x => x.IconName, "", new { @style = "color:red" })
+            </div>
+
+            <button type="submit" class="btn btn-primary">İcon Ekle</button>
+        </form>
+    </div>
+</div>
+
+

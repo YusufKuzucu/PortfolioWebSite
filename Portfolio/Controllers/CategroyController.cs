@@ -1,7 +1,9 @@
 ﻿using Business.Concrate;
+using Business.ValidationRules.FluentValidation;
 using DataAccess.Concrete;
 using DataAccess.Context;
 using Entities;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,19 +12,7 @@ namespace Portfolio.Controllers
     public class CategroyController : Controller
     {
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
-        PortfolioContext portfolioContext = new PortfolioContext();
-        public IActionResult Index()
-        {
-            var values = categoryManager.GetAll();
-
-            return View(values);
-        }
-
-        public PartialViewResult GetCategory()
-        {
-            return PartialView();
-        }
-        [AllowAnonymous]
+       
         public IActionResult AdminGetAllCategory()
         {
             var values = categoryManager.GetAll();
@@ -47,8 +37,24 @@ namespace Portfolio.Controllers
         [HttpPost]
         public IActionResult AdminCategoryUpdate(Category category)
         {
-            categoryManager.Update(category);
-            return RedirectToAction("AdminGetAllCategory", "Categroy");
+            CategoryValidator categoryValidator = new CategoryValidator();
+            ValidationResult result = categoryValidator.Validate(category);
+
+            if (result.IsValid)
+            {
+                categoryManager.Update(category);
+                return RedirectToAction("AdminGetAllCategory", "Categroy");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
+
+            
         }
 
     }

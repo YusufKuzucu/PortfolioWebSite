@@ -1,0 +1,29 @@
+﻿@using Entities
+@model List<About>
+@{
+    ViewData["Title"] = "AdminGetAllAbout";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-hover text-center">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Fotoğraf</th>
+            <th>Hakkımda</th>
+            <th><a href="/About/AdminAboutAdd" type="button" class="btn btn-outline-info">Açıklama Ekle</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td><img src="~/images/@item.ImagePath" width="100" height="100" /></td>
+                <td>@item.MyAboutDescription.Substring(0,50)</td>
+                <td><a href="/About/AdminAboutDelete/@item.Id" type="button" class="btn btn-outline-danger" style="margin-right:5px;">Sil</a> <a href="/About/AdminAboutUpdate/@item.Id" type="button" class="btn btn-outline-warning">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

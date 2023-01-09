@@ -1,129 +1,16 @@
 ﻿
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/HomePageLayout.cshtml";
-}
+@{ ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/HomePageLayout.cshtml"; }
 @await Html.PartialAsync("HeaderBanner")
+
+
 <section class="w3-gallery py-5">
     <div class="container py-md-5">
+    <a href="/Image/Index" role="button" class="btn btn-outline-primary">Tümü</a>
         @await Component.InvokeAsync("CategoryList")
-        <ul class="portfolio-area clearfix p-0 m-0">
-            <li class="portfolio-item2 content" data-id="id-1" data-type="cat-item-1">
-                <span class="image-block">
+        @await Component.InvokeAsync("ImageList")
 
-                    <a class="image-zoom" href="~/Portfolio/assets/images/p1.jpg" data-gal="prettyPhoto[gallery]">
-                        <div class="content-overlay"></div>
-                        <img src="~/Portfolio/assets/images/p1.jpg" class="img-fluid w3layouts agileits" alt="portfolio-img">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">This is a title</h3>
-
-                        </div>
-                    </a>
-                </span>
-            </li>
-            <li class="portfolio-item2 content" data-id="id-2" data-type="cat-item-2">
-                <span class="image-block">
-
-                    <a class="image-zoom" href="~/Portfolio/assets/images/p2.jpg" data-gal="prettyPhoto[gallery]">
-                        <div class="content-overlay"></div>
-                        <img src="~/Portfolio/assets/images/p2.jpg" class="img-fluid w3layouts agileits" alt="portfolio-img">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">This is a title</h3>
-
-                        </div>
-                    </a>
-                </span>
-            </li>
-            <li class="portfolio-item2 content" data-id="id-3" data-type="cat-item-1">
-                <span class="image-block">
-
-                    <a class="image-zoom" href="~/Portfolio/assets/images/p3.jpg" data-gal="prettyPhoto[gallery]">
-                        <div class="content-overlay"></div>
-                        <img src="~/Portfolio/assets/images/p3.jpg" class="img-fluid w3layouts agileits" alt="portfolio-img">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">This is a title</h3>
-
-                        </div>
-                    </a>
-                </span>
-            </li>
-            <li class="portfolio-item2 content" data-id="id-4" data-type="cat-item-3">
-                <span class="image-block">
-
-                    <a class="image-zoom" href="~/Portfolio/assets/images/p4.jpg" data-gal="prettyPhoto[gallery]">
-                        <div class="content-overlay"></div>
-                        <img src="~/Portfolio/assets/images/p4.jpg" class="img-fluid w3layouts agileits" alt="portfolio-img">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">This is a title</h3>
-
-                        </div>
-                    </a>
-                </span>
-            </li>
-            <li class="portfolio-item2 content" data-id="id-5" data-type="cat-item-4">
-                <span class="image-block">
-
-                    <a class="image-zoom" href="~/Portfolio/assets/images/p5.jpg" data-gal="prettyPhoto[gallery]">
-                        <div class="content-overlay"></div>
-                        <img src="~/Portfolio/assets/images/p5.jpg" class="img-fluid w3layouts agileits" alt="portfolio-img">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">This is a title</h3>
-
-                        </div>
-                    </a>
-                </span>
-            </li>
-            <li class="portfolio-item2 content" data-id="id-7" data-type="cat-item-3">
-                <span class="image-block">
-
-                    <a class="image-zoom" href="~/Portfolio/assets/images/p6.jpg" data-gal="prettyPhoto[gallery]">
-                        <div class="content-overlay"></div>
-                        <img src="~/Portfolio/assets/images/p6.jpg" class="img-fluid w3layouts agileits" alt="portfolio-img">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">This is a title</h3>
-
-                        </div>
-                    </a>
-                </span>
-            </li>
-            <li class="portfolio-item2 content" data-id="id-4" data-type="cat-item-3">
-                <span class="image-block">
-                    <a class="image-zoom" href="~/Portfolio/assets/images/p7.jpg" data-gal="prettyPhoto[gallery]">
-                        <div class="content-overlay"></div>
-                        <img src="~/Portfolio/assets/images/p7.jpg" class="img-fluid w3layouts agileits" alt="portfolio-img">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">This is a title</h3>
-                        </div>
-                    </a>
-                </span>
-            </li>
-            <li class="portfolio-item2 content" data-id="id-5" data-type="cat-item-4">
-                <span class="image-block">
-
-                    <a class="image-zoom" href="~/Portfolio/assets/images/p8.jpg" data-gal="prettyPhoto[gallery]">
-                        <div class="content-overlay"></div>
-                        <img src="~/Portfolio/assets/images/p8.jpg" class="img-fluid w3layouts agileits" alt="portfolio-img">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">This is a title</h3>
-
-                        </div>
-                    </a>
-                </span>
-            </li>
-            <li class="portfolio-item2 content" data-id="id-7" data-type="cat-item-3">
-                <span class="image-block">
-                    <a class="image-zoom" href="~/Portfolio/assets/images/p9.jpg" data-gal="prettyPhoto[gallery]">
-                        <div class="content-overlay"></div>
-                        <img src="~/Portfolio/assets/images/p9.jpg" class="img-fluid w3layouts agileits" alt="portfolio-img">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">This is a title</h3>
-                        </div>
-                    </a>
-                </span>
-            </li>
-        </ul>
-        <!--end portfolio-area -->
     </div>
-    <!-- //gallery container -->
+
 </section>
 

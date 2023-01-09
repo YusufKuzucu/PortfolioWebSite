@@ -1,0 +1,16 @@
+﻿
+@model IEnumerable<Entities.AdminEmail>
+@foreach (var item in Model.Take(1))
+{
+    <div class="address-grid mb-3">
+        <span class="pos-icon">
+            <span class="fa fa-envelope">
+
+            </span>
+        </span>
+        <div class="ad-right">
+            <h6>Email</h6>
+            <a href="mailto:mailone@example.com" class="link1">@item.Email</a>
+        </div>
+    </div>
+}

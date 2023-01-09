@@ -1,0 +1,29 @@
+﻿@using Entities
+@model List<AdminEmail>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-hover text-center" >
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th><a href="/AdminEmail/Add" type="button" class="btn btn-success">EMAİL EKLE</a></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Email</td>
+                <td><a type="button" class="btn btn-sm btn-danger " style="margin-right:5px;" href="/AdminEmail/AdminDeleteEmail/@item.Id">SİL</a><a type="button" class="btn btn-sm btn-warning" href="/AdminEmail/AdminUpdateEmail/@item.Id">Güncelle</a></td>
+
+            </tr>
+         }
+    </tbody>
+</table>
+

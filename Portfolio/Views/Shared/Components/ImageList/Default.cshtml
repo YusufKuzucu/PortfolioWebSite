@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Entities.Image>
+
+
+
+<ul class="portfolio-area clearfix p-0 m-0">
+
+    @foreach (var item in Model.OrderByDescending(x=>Guid.NewGuid()).Take(9))
+    {         
+
+        <li class="portfolio-item2 content" data-id="id-@item.CategoryId" data-type="cat-item-@item.CategoryId">
+            <span class="image-block">
+
+                <a class="image-zoom" href="~/images/@item.ImagePath" data-gal="prettyPhoto[gallery]">
+                    <div class="content-overlay"></div>
+                    <img src="~/images/@item.ImagePath" class="img-fluid w3layouts agileits" width="640" height="640" alt="portfolio-img">
+                    <div class="content-details fadeIn-bottom">
+                        <h3 class="content-title">Büyüt</h3>
+
+                    </div>
+                </a>
+            </span>
+        </li>
+       }
+
+
+</ul>

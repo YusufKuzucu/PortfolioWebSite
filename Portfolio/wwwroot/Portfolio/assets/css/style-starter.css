@@ -14935,6 +14935,7 @@ nav ul li a:hover {
 ul.portfolio-categ {
   margin: 0 auto;
   text-align: center;
+  list-style-type:none;
 }
 
 .content {
@@ -15057,20 +15058,22 @@ h3.title {
   padding-left: 0;
   font-size: 1em;
   text-transform: capitalize;
+  
 }
 
 li.cat-item-1:before,
 li.cat-item-2:before,
 li.cat-item-3:before,
 li.cat-item-4:before {
-  content: "";
-  background-color: var(--heading-color);
-  display: inline-block;
-  border-radius: 50%;
-  vertical-align: middle;
-  margin: 0 15px;
-  height: 5px;
-  width: 5px;
+    
+    background-color: var(--heading-color);
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin: 0 15px;
+    height: 5px;
+    width: 5px;
+    
 }
 
 .portfolio-categ li a {
@@ -15087,14 +15090,15 @@ span.image-block {
 }
 
 .portfolio-area li {
-  float: left;
-  list-style-type: none;
-  overflow: hidden;
-  width: 356px;
-  margin: 1em;
-  margin-left: 0;
-  margin-right: 2em;
-  border-radius: 8px;
+    float: left;
+    list-style-type: none;
+    overflow: hidden;
+    width: 356px;
+    margin: 1em;
+    margin-left: 0;
+    margin-right: 2em;
+    border-radius: 8px;
+    
 }
 
 .home-portfolio-text {

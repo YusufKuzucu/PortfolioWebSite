@@ -1,0 +1,24 @@
+﻿@model Entities.FooterImage
+@{
+    ViewData["Title"] = "AdminFooterImageAdd";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-secondary rounded h-100 p-4">
+        <h4 class="mb-4">Fotoğraf Yükle</h4>
+        <form method="post" action="/FooterImages/AdminFooterImageAdd" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="formFileMultiple" class="form-label">Fotoğraf Seç</label>
+                <input class="form-control bg-dark" type="file" asp-for="@Model.ImagePath" id="formFileMultiple" multiple required>
+            </div>
+
+            <label for="floatingSelect" class="form-label text-danger">Lütfen Seçtiğiniz Fotoğrafn Boyutları 400x400 ebatlarında olsun</label>
+
+            <br />
+            <button type="submit" class="btn btn-success">Ekle</button>
+
+        </form>
+    </div>
+</div>
+

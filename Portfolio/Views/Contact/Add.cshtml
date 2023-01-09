@@ -1,108 +1,85 @@
-﻿
-@{
-    ViewData["Title"] = "Add";
-    Layout = "~/Views/Shared/HomePageLayout.cshtml";
-}
+﻿@model Entities.Contact
+@{ ViewData["Title"] = "Add";
+                Layout = "~/Views/Shared/HomePageLayout.cshtml"; }
 
 
-    <!-- header -->
-   
-    <!-- //header -->
-    <!-- /w3l-breadcrumb-->
-    <section class="w3l-breadcrumb">
+<!-- header -->
+<!-- //header -->
+<!-- /w3l-breadcrumb-->
+<section class="w3l-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumbs-custom-path">
+            <li><a href="#url">Ana Sayfa</a></li>
+            <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> İletişim</li>
+        </ul>
+    </div>
+</section>
+<!-- //w3l-breadcrumb-->
+<!-- contact1 -->
+<div class="w3l-contact-10 py-5" id="contact">
+    <div class="form-41-mian pt-lg-4 pt-md-3 pb-4">
         <div class="container">
-            <ul class="breadcrumbs-custom-path">
-                <li><a href="#url">Ana Sayfa</a></li>
-                <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> İletişim</li>
-            </ul>
-        </div>
-    </section>
-    <!-- //w3l-breadcrumb-->
-    <!-- contact1 -->
-    <div class="w3l-contact-10 py-5" id="contact">
-        <div class="form-41-mian pt-lg-4 pt-md-3 pb-4">
-            <div class="container">
-                <div class="heading text-center mx-auto">
-                    <h5 class="title-subhny text-center mb-2">Contact With Us</h5>
-                    <h3 class="hny-title mb-2">Get in Touch with Us </h3>
-                    <p class="mb-5">
-                        If you have a question regarding our services, feel free
-                        to contact us using the form below.
-                    </p>
-                </div>
-                <div class="row">
+            <div class="heading text-center mx-auto">
+                <h5 class="title-subhny text-center mb-2">İletişim</h5>
+                <h3 class="hny-title mb-2">Bizimle İletişime Geçin </h3>
+                <p class="mb-5">
+                    Hizmetlerimiz ile ilgili bir sorunuz varsa, aşağıdaki formu kullanarak bizimle iletişime geçmekten çekinmeyin
+                </p>
+            </div>
+            <div class="row">
 
 
-                    <div class="col-lg-4 contacts-5-grid-main section-gap mb-lg-0 mb-4 pr-lg-5">
-                        <div class="contacts-5-grid">
-                            <div class="map-content-5">
-                                <section class="tab-content">
-                                    <div class="contact-type">
-                                        <div class="address-grid mb-3">
-                                            <span class="pos-icon">
-                                                <span class="fa fa-map"></span>
-                                            </span>
-                                            <div class="ad-right">
-                                                <h6>Address</h6>
-                                                <p>#343, 9th Floor, VHMV-47 Honey Land,New York.</p>
-                                            </div>
-                                        </div>
-                                        <div class="address-grid mb-3">
-                                            <span class="pos-icon">
-                                                <span class="fa fa-envelope">
-
-                                                </span>
-                                            </span>
-                                            <div class="ad-right">
-                                                <h6>Email</h6>
-                                                <a href="mailto:mailone@example.com" class="link1">mailone@example.com</a>
-                                            </div>
-                                        </div>
-                                        <div class="address-grid">
-                                            <span class="pos-icon">
-                                                <span class="fa fa-headphones"></span>
-                                            </span>
-                                            <div class="ad-right">
-                                                <h6>Phone</h6>
-                                                <a href="tel:+12 424-096-439" class="link1">+12 424-096-439</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-                            </div>
+                <div class="col-lg-4 contacts-5-grid-main section-gap mb-lg-0 mb-4 pr-lg-5">
+                    <div class="contacts-5-grid">
+                        <div class="map-content-5">
+                            <section class="tab-content">
+                                <div class="contact-type">
+                                    @await Component.InvokeAsync("AdminAddress")
+                                    @await Component.InvokeAsync("AdminEmail")
+                                    @await Component.InvokeAsync("AdminPhoneNumber")
+                                </div>
+                            </section>
                         </div>
                     </div>
-                    <div class="col-lg-8 form-inner-cont">
-                        <form action="/Contact/Add" method="post" class="signin-form">
-                            <div class="form-grids">
-                                
-                                <div class="form-input">
-                                    <label>E-posta :</label>
-                                    <input type="text" name="Email"  placeholder="example@gmail.com"
-                                           required />
-                                </div>
-                            </div>
-                            
-                            <div class="form-input mt-3">
-                                <label>Mesajınız :</label>
-                                <textarea name="Message" placeholder="Mesajınızı giriniz..."
-                                          required=""></textarea>
-                            </div>
-                            <div class="text-right">
-                                <button class="btn btn-style btn-primary">Mesaj Gönder</button>
-                            </div>
-                        </form>
-                    </div>
+                </div>
+                <div class="col-lg-8 form-inner-cont">
+                    @using (Html.BeginForm("Add", "Contact", FormMethod.Post))
+                    {
+                        @Html.Label("E-posta")
+                        @Html.TextBoxFor(x => x.Email)
+                        @Html.ValidationMessageFor(x => x.Email, "", new { @style = "color:red" })
+                        <br />
+                        @Html.Label("Mesajınız")
+                      
+                        @Html.TextAreaFor(x=>x.Message, 5, 10, new { @class = "form-control", @id = "yazi" })
+                        @Html.ValidationMessageFor(x => x.Message, "", new { @style = "color:red" })
+                        <br />
+                         <span id="sonuc" class="text-danger"></span>
+                         <br /><br />
+                        <button class="btn btn-style btn-primary">Mesaj Gönder</button>
+                    }
                 </div>
             </div>
-            <!-- //contacts-5-grid -->
         </div>
+        <!-- //contacts-5-grid -->
     </div>
-
-   
-    <!-- footer-28 block -->
+</div>
 
 
 
+<script type="text/javascript" language="javascript">
 
 
+  
+        var yazi=document.querySelector('#yazi');
+        var sonuc=document.querySelector('#sonuc');
+
+        yazi.oninput=function(){
+        var maksimum=200;
+        this.value=this.value.substr(0,maksimum);
+        var kalan= maksimum-this.value.length;
+            sonuc.innerHTML = kalan + '/200';
+    }
+  
+</script>
+<!-- footer-28 block -->
